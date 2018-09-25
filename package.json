@@ -1,0 +1,14 @@
+{
+  "name": "testing",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^3.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.0"
+  }
+}

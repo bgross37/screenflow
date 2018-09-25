@@ -1,0 +1,55 @@
+<!--
+
+This one looks actually ready to deploy. It just receives stuff, and  is basically
+a display aread for CSS stuff.
+
+
+Ok, more work needs to be done.
+
+-->
+<html>
+
+<head>
+  <style>
+  .smooth_fade{
+    transition: opacity 0s;
+  }
+  html, body{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    margin: 0;
+    padding: 0;
+  }
+  #content-wrapper{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .slide_container{
+    position: absolute;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+  }
+  </style>
+</head>
+
+
+<body>
+  <div id="content_wrapper">
+    <div class="slide_container smooth_fade" id="next_up">
+
+    </div>
+    <div class="slide_container smooth_fade" id="current">
+
+    </div>
+  </div>
+</body>
+
+<script src="screen/handler.js" type="text/javascript"></script>
+
+</html>

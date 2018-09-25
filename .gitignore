@@ -1,0 +1,9 @@
+.settings
+.classpath
+.project
+target
+.class
+node_modules
+out
+release-builds
+.DS_Store
