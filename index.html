@@ -7,7 +7,9 @@
 </textarea>
 
   <input type="button" onclick="sendInput()" value="send"/>
-  <input type="button" onclick="ingestFile()" value="open"/>
+  <input type="button" onclick="nextSlide()" value="next"/><br />
+  <input type="text" id="time" />
+  <input type="button" onclick="setTransitionTime()" value="send"/>
 </body>
 <script>
 const { remote, ipcRenderer } = require ('electron');
@@ -34,10 +36,28 @@ function ingestFile(){
 
 function sendInput(){
   let message = {
+    'type': 'next_content',
+    'template': 'text_slide',
     'target_window': 'overlay1',
-    'builder': 'text_slide',
     'content': document.getElementById('textThing').value
   }
+  send(message);
+}
+
+function nextSlide(){
+  let message = {
+    'type': 'show_next',
+    'target_window': 'overlay1'
+  };
+  send(message);
+}
+
+function setTransitionTime(){
+  let message = {
+    'type': 'transition_time',
+    'target_window': 'overlay1',
+    'content': document.getElementById('time').value
+  };
   send(message);
 }
 

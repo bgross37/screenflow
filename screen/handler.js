@@ -2,6 +2,7 @@ const { remote, ipcRenderer } = require('electron');
 const fs = require('fs-extra');
 const builders = require('./screen/builders.js');
 
+
 let content_wrapper = document.getElementById('content_wrapper');
 content_wrapper.loaded_template = 'full';
 content_wrapper.innerHTML = '';
@@ -17,7 +18,7 @@ ipcRenderer.on('message', (event, message) => {
       break;
 
     case 'next_content':
-      handleNext(message.content);
+      handleNext(message.template, message.content);
       break;
 
     case 'show_next':
@@ -42,11 +43,18 @@ function setTransitionTime(time){
 /*
 * this one needs to prep the next <div> with the delivered content (kinda like caching)
 */
-function handleNext(type, content){
+function handleNext(template, content){
   let next_up = document.createElement('div');
-  next_up.classList.add('slide_container','smooth_fade');
+  next_up.classList.add('slide_container', 'smooth_fade', 'hidden');
   next_up.id = 'next_up';
-  next_up.innerHTML = builder[type](content)
+  next_up.innerHTML = builder[template](content);
+
+  let old_next_up = document.getElementById('next_up');
+  if(old_next_up){
+    old_next_up.parentNode.removeChild(old_next_up);
+  }
+
+  document.getElementById("content_wrapper").appendChild(next_up);
 }
 
 
@@ -55,5 +63,24 @@ function handleNext(type, content){
 * this one actually triggers the transition.
 */
 function showNextSlide(){
+  let old = document.getElementById('old');
+  if(old != undefined){
+    old.parentNode.removeChild(old);
+  }
 
+  let next_up = document.getElementById('next_up');
+  if(!next_up){
+    return 'Nothing queued!';
+  }
+
+  let current = document.getElementById('current');
+  if(current != undefined){
+    current.classList.remove('visible');
+    current.classList.add('hidden');
+    current.id = 'old';
+  }
+
+  next_up.classList.remove('hidden');
+  next_up.classList.add('visible');
+  next_up.id = 'current';
 }

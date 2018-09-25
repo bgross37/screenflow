@@ -1,4 +1,3 @@
-
 class builders {
 
   constructor(content_wrapper){
@@ -15,7 +14,7 @@ class builders {
   }
 
 
-  createTextSlide(text){
+  text_slide(text){
     return `
     <style>
     .flexbox_container{
@@ -29,32 +28,10 @@ class builders {
     }
     </style>
     <div class="flexbox_container">
-      <p id="slidetext1">` + text + `</p>
-    </div>
-    `;
+      <p id="slidetext1">` + text + '</p></div>';
   }
 
 
-  text_slide(text){
-    let text_element = document.getElementById('text_element');
-    text_element.innerText = text;
-  }
-
-
-  load_template(template){
-    switch(template){
-      case 'text_slide':
-      this.content_wrapper.innerHTML = ´
-      ´;
-
-      this.content_wrapper.loaded_template = "text_slide";
-      break;
-
-      case 'full':
-      this.content_wrapper.innerHTML = '';
-      this.content_wrapper.loaded_template = 'full';
-      break;
-    }
-  }
 }
+
 module.exports = builders;
