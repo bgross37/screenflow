@@ -1,16 +1,21 @@
 class builders {
 
   constructor(content_wrapper){
-    this.handlers = ['full', 'text_slide'];
-    this.content_wrapper = content_wrapper;
+
   }
 
 
   full(content){
-    if(this.content_wrapper.loaded_template != 'full'){
-      this.load_template('full');
+    return `
+    <style>
+    .flexbox_container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    this.content_wrapper = content;
+    </style>
+    <div class="flexbox_container">` + content + '</div>';
   }
 
 
@@ -23,7 +28,7 @@ class builders {
       justify-content: center;
       height: 100vh;
     }
-    .text_container p{
+    .flexbox_container p{
       text-align: center;
     }
     </style>

@@ -39,7 +39,15 @@ function sendInput(){
     'type': 'next_content',
     'template': 'text_slide',
     'target_window': 'overlay1',
-    'content': document.getElementById('textThing').value
+    'content': {'text': document.getElementById('textThing').value,
+    'style': `
+      color: white;
+      outline: 10px solid white;
+      outline-offset: -10px;
+      background-image: url("./assets/picture.jpg");
+      background-size: cover;
+      background-position: center;
+      `}
   }
   send(message);
 }
