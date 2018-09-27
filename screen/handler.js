@@ -3,11 +3,33 @@ const fs = require('fs-extra');
 const builders = require('./screen/builders.js');
 
 
-let content_wrapper = document.getElementById('content_wrapper');
-content_wrapper.loaded_template = 'full';
-content_wrapper.innerHTML = '';
+/*  +----------------+
+*   | API DEFINITION |
+*   +----------------+
+*
+* Prepare next slide:
+* {'type': 'next_content',
+* 'template': '[raw_slide|text_slide|image_slide|pdf_slide|video_slide]',
+* 'target_window': 'overlay1',
+* 'content': see below,
+* 'style': 'CSS3 Stlye'
+* }
+*
+* Show Next Slide:
+* {'type': 'show_next',
+* 'target_window': 'overlay1'
+* }
+*
+* Set Transition Time:
+* {'type': 'transition_time',
+* 'target_window': 'overlay1',
+* 'content': LONG
+* }
+*
+*/
 
-let builder = new builders(content_wrapper);
+
+let builder = new builders();
 
 ipcRenderer.on('message', (event, message) => {
   console.log(message);
@@ -26,8 +48,6 @@ ipcRenderer.on('message', (event, message) => {
       break;
 
   }
-
-
 });
 
 
@@ -39,6 +59,8 @@ function setTransitionTime(time){
   document.styleSheets[0].deleteRule(0);
   document.styleSheets[0].insertRule('.smooth_fade{transition: opacity ' + time + 's;}', 0);
 }
+
+
 
 /*
 * this one needs to prep the next <div> with the delivered content (kinda like caching)
