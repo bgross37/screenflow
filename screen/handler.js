@@ -11,8 +11,7 @@ const builders = require('./screen/builders.js');
 * {'type': 'next_content',
 * 'template': '[raw_slide|text_slide|image_slide|pdf_slide|video_slide]',
 * 'target_window': 'overlay1',
-* 'content': see below,
-* 'style': 'CSS3 Stlye'
+* 'content': {'text': 'stuff', 'style': 'CSS3 Stlye'}
 * }
 *
 * Show Next Slide:
@@ -32,7 +31,6 @@ const builders = require('./screen/builders.js');
 let builder = new builders();
 
 ipcRenderer.on('message', (event, message) => {
-  console.log(message);
 
   switch(message.type){
     case 'transition_time':
@@ -69,7 +67,7 @@ function handleNext(template, content){
   let next_up = document.createElement('div');
   next_up.classList.add('slide_container', 'smooth_fade', 'hidden');
   next_up.id = 'next_up';
-  next_up.style = content.style;
+  next_up.style = content.style != undefined ? content.style : '';
   next_up.innerHTML = builder[template](content.text);
 
   let old_next_up = document.getElementById('next_up');
