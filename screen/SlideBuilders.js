@@ -1,4 +1,4 @@
-class builders {
+class SlideBuilders {
 
   raw_slide(content){
     return `
@@ -51,4 +51,4 @@ class builders {
 
 }
 
-module.exports = builders;
+module.exports = SlideBuilders;

@@ -1,6 +1,6 @@
 const { remote, ipcRenderer } = require('electron');
 const fs = require('fs-extra');
-const builders = require('./screen/builders.js');
+const SlideBuilders = require('./screen/SlideBuilders.js');
 
 
 /*  +----------------+
@@ -28,7 +28,7 @@ const builders = require('./screen/builders.js');
 */
 
 
-let builder = new builders();
+let sb = new SlideBuilders();
 
 ipcRenderer.on('message', (event, message) => {
 
@@ -68,7 +68,7 @@ function handleNext(template, content){
   next_up.classList.add('slide_container', 'smooth_fade', 'hidden');
   next_up.id = 'next_up';
   next_up.style = content.style != undefined ? content.style : '';
-  next_up.innerHTML = builder[template](content.text);
+  next_up.innerHTML = sb[template](content.text);
 
   let old_next_up = document.getElementById('next_up');
   if(old_next_up){
