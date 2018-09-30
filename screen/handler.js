@@ -45,7 +45,7 @@ ipcRenderer.on('message', (event, message) => {
       showNextSlide();
       break;
 
-    case 'setTheme':
+    case 'set_theme':
       setTheme(message.content);
       break;
 

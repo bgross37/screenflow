@@ -24,11 +24,19 @@ class MessageBuilder{
     }
   }
 
-  makeTransitionTime(time, window){
+  makeTransitionTime(time, target_window){
     return {
       'type': 'transition_time',
       'target_window': target_window != undefined ? target_window : this.default_window,
       'content': time
+    }
+  }
+
+  makeTheme(css_content, target_window){
+    return {
+      'type': 'set_theme',
+      'target_window': target_window != undefined ? target_window : this.default_window,
+      'content': css_content
     }
   }
 

@@ -16,7 +16,10 @@ function nextSlide(){
   sendMessage(mb.makeNextSlide());
 }
 
-
+function setTheme(){
+  let message = mb.makeTheme(document.getElementById('theme').value);
+  sendMessage(message);
+}
 
 
 
