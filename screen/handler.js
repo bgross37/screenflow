@@ -45,6 +45,10 @@ ipcRenderer.on('message', (event, message) => {
       showNextSlide();
       break;
 
+    case 'setTheme':
+      setTheme(message.content);
+      break;
+
   }
 });
 
@@ -56,6 +60,22 @@ ipcRenderer.on('message', (event, message) => {
 function setTransitionTime(time){
   document.styleSheets[0].deleteRule(0);
   document.styleSheets[0].insertRule('.smooth_fade{transition: opacity ' + time + 's;}', 0);
+}
+
+/*
+* changes transition time based on input. Therefore .smooth_fade has to be
+* the top most style rule in the style sheet.
+*/
+function setTheme(css_content){
+  document.styleSheets[0].deleteRule(1);
+  document.styleSheets[0].insertRule(`
+    #content_wrapper{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      ` + css_content + `
+    }`, 1);
 }
 
 
