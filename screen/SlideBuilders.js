@@ -14,7 +14,7 @@ class SlideBuilders {
   }
 
 
-  text_slide(text){
+  text_slide(text, style){
     return `
     <style>
     .flexbox_container{
@@ -26,6 +26,7 @@ class SlideBuilders {
     .flexbox_container p{
       text-align: center;
     }
+    ` + style + `
     </style>
     <div class="flexbox_container">
       <p id="slidetext1">` + text + '</p></div>';

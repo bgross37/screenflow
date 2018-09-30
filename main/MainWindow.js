@@ -3,10 +3,18 @@ const {dialog, app} = require('electron').remote;
 const fs = require('fs-extra');
 const MessageBuilder = require('./main/MessageBuilder.js');
 
+let mb = new MessageBuilder('overlay1');
 
 
+function nextSlide(){
+  console.log('next slide is up!')
+  let message = mb.makeTextSlide(document.getElementById('text').value,
+    document.getElementById('inline_style').value,
+    document.getElementById('style').value);
+  sendMessage(message);
 
-
+  sendMessage(mb.makeNextSlide());
+}
 
 
 
@@ -23,6 +31,8 @@ function sendMessage(message){
 
 
 //----------------------------------------------- Legacy stuff
+
+
 function ingestFile(){
   dialog.showOpenDialog((filePaths) => {
     // fileNames is an array that contains all the selected
@@ -39,43 +49,11 @@ function ingestFile(){
 
 
 
-function sendInput(){
-  let message = {
-    'type': 'next_content',
-    'template': 'text_slide',
-    'target_window': 'overlay1',
-    'content': {'text': document.getElementById('textThing').value,
-    'style': `
-      color: white;
-      outline: 10px solid white;
-      outline-offset: -10px;
-      background-image: url("./assets/picture.jpg");
-      background-size: cover;
-      background-position: center;
-      `}
-  }
-  send(message);
-}
-
-function nextSlide(){
-  let message = {
-    'type': 'show_next',
-    'target_window': 'overlay1'
-  };
-  send(message);
-}
-
 function setTransitionTime(){
   let message = {
     'type': 'transition_time',
     'target_window': 'overlay1',
     'content': document.getElementById('time').value
   };
-  send(message);
-}
-
-
-function send(message){
-  let target = remote.getGlobal('windows')[message.target_window];
-  if (target) target.webContents.send('message', message);
+  sendMessage(message);
 }

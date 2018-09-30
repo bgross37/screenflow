@@ -1,7 +1,15 @@
 class Theme {
-  constructor(){
+  constructor(css_tag, key, value){
+    if(css_tag != undefined && key != undefined && value != undefined){
+      this.styleList = {css_tag: [key + ':' + value + ';']};
+    }
 
   }
+
+  addRule(css_tag, key, value){
+    this.styleList[css_tag].push(key + ':' + value + ';');
+  }
+
 
 
 /*
@@ -9,7 +17,7 @@ class Theme {
 * the display.
 */
   getDOMStyleElement(){
-    return `TODO`;
+    return '<style>' + this.styleList + '</style>';
   }
 
 

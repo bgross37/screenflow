@@ -4,12 +4,16 @@ class MessageBuilder{
     this.default_window = default_window;
   }
 
-  makeTextSlide(text, style, target_window){
+  makeTextSlide(text, inline_style, style, target_window){
       return {
         'type': 'next_content',
         'template': 'text_slide',
         'target_window': target_window != undefined ? target_window : this.default_window,
-        'content': {'text': text, 'style': style != undefined ? style : undefined}
+        'content': {
+          'text': text,
+          'inline_style': inline_style != undefined ? inline_style : undefined,
+          'style': style != undefined ? style : undefined
+        }
       }
   }
 

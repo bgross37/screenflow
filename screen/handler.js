@@ -67,8 +67,8 @@ function handleNext(template, content){
   let next_up = document.createElement('div');
   next_up.classList.add('slide_container', 'smooth_fade', 'hidden');
   next_up.id = 'next_up';
-  next_up.style = content.style != undefined ? content.style : '';
-  next_up.innerHTML = sb[template](content.text);
+  next_up.style = content.inline_style != undefined ? content.inline_style : '';
+  next_up.innerHTML = sb[template](content.text, content.style);
 
   let old_next_up = document.getElementById('next_up');
   if(old_next_up){
