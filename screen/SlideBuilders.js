@@ -29,7 +29,8 @@ class SlideBuilders {
     ` + style + `
     </style>
     <div class="flexbox_container">
-      <p id="slidetext1">` + text + '</p></div>';
+      <p id="slidetext1">` + text + `</p>
+      </div>`;
   }
 
   image_slide(src){
@@ -46,7 +47,8 @@ class SlideBuilders {
     }
     </style>
     <div class="flexbox_container">
-      <img src="` + src + `" id="slidetext1"/></div>`;
+      <img src="` + src + `" id="slidetext1"/>
+    </div>`;
   }
 
 
