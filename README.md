@@ -2,6 +2,13 @@
 The vision for this app is to make a new worship presenter software,
 mostly tailored to my needs, and actually functional and enjoyable to use.
 
+## Build
+To build, simply install node.js and run the following command in the repository:
+`npm install`
+
+After that has finished, you can run the app via
+`npm run start`
+
 ## Architecture
 So this is gonna be built upon the amazing electron framework.
 
