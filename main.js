@@ -13,6 +13,8 @@ function createWindow () {
   global.windows.main.openDevTools();
   global.windows.overlay1.openDevTools();
 
+  global.windows.overlay1.setMenu(null);
+
   global.windows.overlay1.setFullScreen(true);
 
   // Emitted when the window is closed.
