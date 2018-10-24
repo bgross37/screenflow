@@ -1,10 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 global.windows = {'main': null, 'overlay1': null};
-
 function createWindow () {
   // Create the browser window.
   global.windows.main = new BrowserWindow({ width: 800, height: 600 })
-  global.windows.overlay1 = new BrowserWindow({ width: 800, height: 600 })
+  global.windows.overlay1 = new BrowserWindow({ width: 800, height: 600, frame: false })
 
   // and load the index.html of the app.
   global.windows.main.loadFile('index.html')
@@ -12,8 +11,6 @@ function createWindow () {
 
   global.windows.main.openDevTools();
   global.windows.overlay1.openDevTools();
-
-  global.windows.overlay1.setMenu(null);
 
   global.windows.overlay1.setFullScreen(true);
 

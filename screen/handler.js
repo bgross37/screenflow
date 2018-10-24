@@ -6,7 +6,7 @@ const SlideBuilders = require('./screen/SlideBuilders.js');
 /*  +----------------+
 *   | API DEFINITION |
 *   +----------------+
-*
+* 
 * Prepare next slide:
 * {'type': 'next_content',
 * 'template': '[raw_slide|text_slide|image_slide|pdf_slide|video_slide]',
@@ -48,7 +48,6 @@ ipcRenderer.on('message', (event, message) => {
     case 'set_theme':
       setTheme(message.content);
       break;
-
   }
 });
 
