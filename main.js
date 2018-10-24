@@ -6,8 +6,8 @@ function createWindow () {
   global.windows.overlay1 = new BrowserWindow({ width: 800, height: 600, frame: false })
 
   // and load the index.html of the app.
-  global.windows.main.loadFile('index.html')
-  global.windows.overlay1.loadFile('overlay.html')
+  global.windows.main.loadFile('main/pages/presenter.html')
+  global.windows.overlay1.loadFile('overlay/pages/overlay.html')
 
   global.windows.main.openDevTools();
   global.windows.overlay1.openDevTools();

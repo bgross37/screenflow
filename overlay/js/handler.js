@@ -1,12 +1,12 @@
 const { remote, ipcRenderer } = require('electron');
 const fs = require('fs-extra');
-const SlideBuilders = require('./screen/SlideBuilders.js');
+const SlideBuilders = require('../js/SlideBuilders.js');
 
 
 /*  +----------------+
 *   | API DEFINITION |
 *   +----------------+
-* 
+*
 * Prepare next slide:
 * {'type': 'next_content',
 * 'template': '[raw_slide|text_slide|image_slide|pdf_slide|video_slide]',

@@ -1,1 +1,1 @@
-{"name":"untitled", "themeContent":"      background-image: url('./assets/picture.jpg');\n      background-size: cover;\n      outline: 10px solid #e1c065;\n      outline-offset: -10px;\n"}
+{"name":"untitled", "themeContent":"      background-image: url('../../assets/picture.jpg');\n      background-size: cover;\n      outline: 10px solid #e1c065;\n      outline-offset: -10px;\n"}
