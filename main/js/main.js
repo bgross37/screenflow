@@ -2,7 +2,10 @@ const { remote, ipcRenderer } = require ('electron');
 const {dialog, app} = require('electron').remote;
 const fsx = require('fs-extra');
 const fs = require('fs');
-const MessageBuilder = require('../../lib/MessageBuilder.js');
+const root = "../..";
+const MessageBuilder = require(root+'/lib/MessageBuilder.js');
+const FoundationVariable = require(root+'/lib/class.foundationVariable.js');
+const Foundation = require(root+'/lib/class.foundation.js');
 
 let mb = new MessageBuilder('overlay1');
 

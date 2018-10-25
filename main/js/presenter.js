@@ -41,8 +41,6 @@ function updateThemes(){
           #themes_wrapper #theme_preview_`+i+`{
             ` + themeCss + `
           }`);
-        console.log($("#themes_wrapper #theme_preview_"+i), themeCss);
         i++;
     });
-    // console.log(themes);
 }

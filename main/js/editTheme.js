@@ -29,7 +29,7 @@ function saveTheme(){
             }
             nameI++;
         }
-        fs.writeFile(app.getAppPath() + '/themes/'+foundName+ ".json", '{"name":"'+foundName+'", "themeContent":'+theme+'}', function(err) {
+        fs.writeFile(path+foundName+ ".json", '{"name":"'+foundName+'", "themeContent":'+theme+'}', function(err) {
             if(err) {
                 return console.log(err);
             }
