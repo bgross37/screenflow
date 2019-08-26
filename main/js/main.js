@@ -7,6 +7,15 @@ const MessageBuilder = require(root+'/lib/MessageBuilder.js');
 const FoundationVariable = require(root+'/lib/class.foundationVariable.js');
 const Foundation = require(root+'/lib/class.foundation.js');
 
+const sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('screenflow.db');
+
+db.serialize(function() {
+    db.run("CREATE TABLE if not exists text (content TEXT)");
+});
+
+db.close();
+
 let mb = new MessageBuilder('overlay1');
 
 $ = jQuery = require('jquery');

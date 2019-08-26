@@ -21,6 +21,12 @@
                 cursor: pointer;
                 display: inline-block;
             }
+            .text_row{
+              border: 1px solid;
+              border-radius: 2px;
+              cursor: pointer;
+              /* display: inline-block; */
+            }
         </style>
     </head>
     <body>
@@ -32,12 +38,18 @@
 
         </div>
 
+        <h1>Text</h1>
+
+        <div id="texts_wrapper">
+
+        </div>
+
+
+        <input type="text" id="addText" rows="8" cols="80" placeholder="My Text">
+        <input type="button" value="Save Text" onclick="createText();">
 
         <h1>Present</h1>
 
-        <textarea id="text" rows="3" cols="25">
-          some content with words and things
-        </textarea>
         <textarea id="inline_style" rows="10" cols="25">
           font-family: ailerons; font-size: 50px; color: white;
         </textarea>
@@ -49,6 +61,8 @@
         <input type="button" onclick="nextSlide()" value="Show on Screen"/><br />
         <input type="text" id="time" />
         <input type="button" onclick="setTransitionTime()" value="send"/>
+
+
     </body>
     <script src="../js/main.js" type="text/javascript"></script>
     <script src="../js/presenter.js" type="text/javascript"></script>

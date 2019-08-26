@@ -8,3 +8,4 @@ out
 release-builds
 .DS_Store
 start.bat
+*.db

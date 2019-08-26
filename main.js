@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
+
 global.windows = {'main': null, 'overlay1': null};
 function createWindow () {
   // Create the browser window.
